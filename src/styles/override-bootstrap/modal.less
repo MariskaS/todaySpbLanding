@@ -1,0 +1,122 @@
+@import "../common/variables";
+@import "../common/mixins/mixins-config";
+
+.u-margin-top-25 {
+  margin-top: 25px;
+}
+
+.app-modal {
+  .modal {
+    &-body {
+      .mixin-flex-column;
+      padding: 0;
+    }
+
+    &-dialog {
+      margin: 0;
+      height: 100%;
+      width: auto;
+    }
+
+    &-content {
+      border-radius: 0;
+      background-clip: border-box;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border: none;
+      min-height: 100%;
+      padding: 100px 10px;
+      .mixin-flex;
+      .mixin-flex-center-center;
+      width: 100%;
+      margin: 0;
+
+      h2 {
+        margin-bottom: @spacing-double;
+        .mixin-font-black;
+        font-size: @section-title;
+      }
+
+      h3 {
+        .mixin-font-black;
+        font-size: @font-size-xx;
+        margin: 38px 0 24px;
+      }
+
+      label {
+        .mixin-font-medium;
+        font-weight: 700;
+      }
+    }
+
+    &-backdrop {
+      opacity: 0;
+      display: none;
+    }
+  }
+
+  .close-modal {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.3;
+    }
+    .lr {
+      height: 75px;
+      width: 1px;
+      margin-left: 35px;
+      background-color: @color-modal-bg;
+      transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      /* IE 9 */
+      -webkit-transform: rotate(45deg);
+      /* Safari and Chrome */
+      z-index: 1051;
+      .rl {
+        height: 75px;
+        width: 1px;
+        background-color: @color-modal-bg;
+        transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        /* IE 9 */
+        -webkit-transform: rotate(90deg);
+        /* Safari and Chrome */
+        z-index: 1052;
+      }
+    }
+  }
+
+  &__info {
+    margin: @spacing-double 0 @spacing-base;
+
+    .app-description {
+      margin-top: @spacing-base;
+    }
+
+    // For desktop
+    @media (min-width: 768px) {
+      & {
+        .mixin-flex-row;
+
+        .app-price {
+          width: 40%;
+          padding-right: @spacing-double;
+        }
+
+        .app-description {
+          margin-top: 0;
+          flex: 1;
+        }
+      }
+    }
+  }
+}
+
+.modal-open .modal {
+  padding: 0 !important;
+}

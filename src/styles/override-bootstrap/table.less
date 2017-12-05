@@ -1,0 +1,43 @@
+@import "../common/variables";
+@import "../common/mixins/mixins-config";
+
+.table {
+  margin: 0;
+
+  > thead > tr > th {
+    border-bottom-color: @color-black;
+  }
+
+  > tbody > tr > td,
+  > tbody > tr > th,
+  > thead > tr > td,
+  > thead > tr > th {
+    border-top-color: @color-border-table;
+  }
+
+  > tfoot > tr > td,
+  > tfoot > tr > th {
+    border-top: 2px solid @color-black;
+  }
+
+  > thead,
+  > tfoot {
+    .mixin-font-reg;
+  }
+
+  // For mobile
+  @media (max-width: 460px) {
+    & {
+      font-size: 13px;
+
+      > tbody > tr > td,
+      > tbody > tr > th,
+      > tfoot > tr > td,
+      > tfoot > tr > th,
+      > thead > tr > td,
+      > thead > tr > th {
+        padding: 2px;
+      }
+    }
+  }
+}

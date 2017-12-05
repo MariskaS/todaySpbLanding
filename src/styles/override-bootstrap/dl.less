@@ -1,0 +1,26 @@
+@import "../common/variables";
+@import "../common/mixins/mixins-config";
+
+dl {
+  margin-bottom: 0;
+}
+
+.app-dl-icon {
+  dt {
+    width: 16px;
+    float: left;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  dd {
+    margin-left: calc(16px + 12px);
+
+    &:not(:last-child) {
+      padding-bottom: 2px;
+    }
+  }
+}

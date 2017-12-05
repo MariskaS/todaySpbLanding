@@ -1,0 +1,40 @@
+@import "button";
+@import "flex";
+@import "font";
+
+.mixin-bg-base {
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.mixin-contact-info {
+  text-align: right;
+  color: @color-white;
+
+  a {
+    display: block;
+    .mixin-font-light;
+    opacity: .9;
+    color: @color-white;
+    margin-left: 2px;
+
+    &.app-tel {
+      font-size: 24px;
+      .mixin-font-black;
+      opacity: 1;
+    }
+  }
+}
+
+.mixin-link-white {
+  a {
+    color: @color-white;
+    text-decoration: underline;
+
+    &:focus,
+    &:hover {
+      color: @color-white;
+      text-decoration: none;
+    }
+  }
+}

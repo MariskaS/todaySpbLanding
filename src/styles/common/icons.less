@@ -1,0 +1,19 @@
+@import "../common/variables";
+@import "../common/mixins/mixins-config";
+
+.app-i-check {
+  display: inline-block;
+  padding-left: 24px;
+  margin-bottom: 20px;
+
+  &:before {
+    display: block;
+    content: '';
+    transform: rotate(45deg);
+    width: 22px;
+    height: 44px;
+    border: 6px solid @color-theme-orange;
+    border-top: 0;
+    border-left: 0;
+  }
+}

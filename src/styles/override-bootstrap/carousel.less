@@ -1,0 +1,50 @@
+@import "../common/variables";
+@import "../common/mixins/mixins-config";
+
+.carousel-inner>.item {
+  > a > img,
+  > img {
+    width: 100%;
+  }
+}
+.carousel-control {
+  .fa-angle-left,
+  .fa-angle-right {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block;
+    margin-top: -10px
+  }
+
+  .fa-angle-left {
+    left: 50%;
+    margin-left: -10px
+  }
+
+  .fa-angle-right {
+    right: 50%;
+    margin-right: -10px
+  }
+
+  @media screen and (min-width: 768px) {
+    & {
+      .fa-angle-left,
+      .fa-angle-right {
+        width: 30px;
+        height: 30px;
+        margin-top: -10px;
+        font-size: 30px
+      }
+
+      .fa-angle-left {
+        margin-left: -10px
+      }
+
+      .fa-angle-right {
+        margin-right: -10px
+      }
+
+    }
+  }
+}

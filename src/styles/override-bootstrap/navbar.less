@@ -1,0 +1,212 @@
+@import "../common/variables";
+@import "../common/mixins/mixins-config";
+
+@size-icon-bar: 28px;
+
+.navbar-custom {
+  background-color: @color-theme-blue;
+  border: 0;
+  border-radius: 0;
+  line-height: 1;
+  min-height: auto;
+  margin: 0;
+
+  .navbar-toggle {
+    background-color: @color-theme-orange;
+    border-color: @color-theme-orange;
+    color: white;
+    font-size: 12px;
+
+    &:hover,
+    &:focus {
+      background-color: @color-theme-orange;
+    }
+  }
+
+  .nav {
+    li {
+      a {
+        .mixin-font-reg;
+        color: @color-white;
+        opacity: .9;
+
+        &:hover,
+        &:focus {
+          color: @color-white;
+          opacity: 1;
+        }
+      }
+
+      &.active {
+        a {
+          color: @color-white;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .app-navbar {
+    .app-navbar-info {
+      display: none;
+    }
+  }
+
+  .app-navbar-info {
+    flex: 1;
+    .mixin-contact-info;
+
+    .app-tel {
+      font-size: 22px !important;
+    }
+  }
+
+  // For desktop
+  @media (min-width: 768px) {
+    & {
+      .app-navbar {
+        .mixin-flex-row;
+        .mixin-flex-start-center;
+      }
+
+      .nav {
+        flex: 1;
+        .mixin-flex-row;
+
+        li {
+          a {
+            height: @navbar-height;
+            border-top: 5px solid transparent;
+            padding-top: calc(15px - 3px);
+            padding-left: 0;
+            padding-right: 0;
+            margin-right: @spacing-base;
+            white-space: nowrap;
+
+            span {
+              .u-link-dotted-white;
+            }
+
+            &:hover,
+            &:focus {
+              span {
+                border-bottom-color: transparent;
+              }
+            }
+          }
+
+          &.active {
+            a {
+              border-top-color: @color-theme-orange;
+
+              span {
+                border-bottom-color: transparent;
+              }
+            }
+          }
+        }
+      }
+
+      .navbar-collapse {
+        padding: 0;
+      }
+
+      .navbar-header {
+        .app-navbar-info {
+          display: none;
+        }
+      }
+
+      &.affix {
+        .app-navbar .app-navbar-info {
+          display: block;
+          flex: 1;
+          .mixin-contact-info;
+
+          .app-tel {
+            font-size: 22px !important;
+          }
+        }
+      }
+    }
+  }
+
+  // For mobile
+  @media (max-width: 768px) {
+    & {
+      .nav {
+        li {
+          a {
+            &:hover,
+            &:focus {
+              background-color: @color-hover-base;
+            }
+          }
+
+          &.active {
+            a {
+              background-color: @color-hover-base;
+            }
+          }
+        }
+      }
+
+      .navbar-collapse {
+        border-top: 0;
+        border-color: @color-hover-base;
+
+        .app-navbar-info {
+          display: none;
+        }
+      }
+
+      .navbar-toggle {
+        float: none;
+        margin: 0 @spacing-base 0 0;
+        border-radius: 0;
+        font-size: @size-icon-bar;
+      }
+
+      .container {
+        padding-right: 0;
+      }
+
+      .navbar-header {
+        .mixin-flex-row;
+        .mixin-flex-start-center;
+      }
+    }
+  }
+
+  // For tablet
+  @media (min-width: 768px) and (max-width: 992px) {
+    & {
+      .navbar-nav,
+      .app-navbar-info {
+        font-size: @font-size-s;
+      }
+    }
+  }
+}
+
+.affix {
+  background: rgba(31, 49, 87, 0.95);
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  box-shadow: @shadow-navbar;
+
+  &-top {
+    position: relative;
+  }
+}
+
+.navbar-default {
+  .navbar-nav>.active>a,
+  .navbar-nav>.active>a:focus,
+  .navbar-nav>.active>a:hover {
+    color: @color-white;
+    background-color: transparent;
+  }
+}

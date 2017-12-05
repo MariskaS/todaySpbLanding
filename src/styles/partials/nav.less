@@ -1,0 +1,34 @@
+@import "../common/variables";
+@import "../common/mixins/mixins-config";
+
+.app-nav {
+  background-image: linear-gradient(-180deg, #1f3157 0%, #2b4478 100%);
+  line-height: 1;
+
+  .container {
+    .mixin-flex-row;
+    .mixin-flex-start-center;
+    height: @nav-height;
+  }
+
+  &__info {
+    flex: 1;
+  }
+
+  &__info {
+    .mixin-contact-info;
+  }
+
+  &__logo a {
+    display: block;
+    background: url('../img/logo_min.png') no-repeat 0 0;
+    width: 60px;
+    height: 41px;
+
+    @media (min-width: 520px) {
+      background: url('../img/logo.png') no-repeat 0 0;
+      width: 220px;
+      height: 52px;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import "../common/variables";
+@import "../common/mixins/mixins-config";
+
+.app-map {
+  position: relative;
+
+  &__label {
+    .mixin-flex-row;
+    background-color: @color-white;
+    box-shadow: @shadow-map;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    margin-top: calc(186px/-2);
+    right: 60px;
+    z-index: 2;
+    overflow: hidden;
+    height: 186px;
+
+    &-img {
+      margin-bottom: 0;
+
+      img {
+        width: 201px;
+      }
+    }
+
+    &-info {
+      padding-left: 10px;
+
+      h3 {
+        .mixin-font-black;
+        font-size: 24px;
+        padding-bottom: 4px;
+      }
+
+      a {
+        text-decoration: underline;
+        color: @color-font-base;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    & {
+      &__label {
+        display: none;
+      }
+    }
+  }
+}

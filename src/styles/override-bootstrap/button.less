@@ -1,0 +1,53 @@
+@import "../common/variables";
+@import "../common/mixins/mixins-config";
+
+.btn {
+  min-height: @height-control;
+  min-width: 147px;
+  line-height: 24px;
+  padding: @spacing-base-half @spacing-base;
+  border-radius: @border-radius-btn;
+  text-transform: none;
+  font-size: @font-size-base;
+  font-weight: 400;
+  user-select: none;
+
+  &:not(.btn-outline) {
+    border: 0;
+  }
+
+  &:not(.btn-link) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  &.btn-link {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  &:focus,
+  &:active,
+  &.active,
+  &:active:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+// Color
+.btn-primary {
+  .button-variant(@color-white, @color-theme-orange, @color-theme-orange);
+}
+
+.btn-black {
+  .button-variant(@color-white, @color-black, @color-black);
+}
+
+.btn-info {
+  .button-variant(@color-white, @color-theme-blue, @color-theme-blue);
+}
+
+.btn-outline {
+  .button-variant(@color-white, transparent, @color-white);
+}

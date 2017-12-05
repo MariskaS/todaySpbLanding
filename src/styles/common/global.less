@@ -1,0 +1,248 @@
+@import "../common/variables";
+@import "../common/mixins/mixins-config";
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: @color-gray-dark;
+}
+
+::-webkit-scrollbar-track {
+  background: @color-gray-lighter;
+}
+
+// Selection
+::selection {
+  text-shadow: none;
+  background: @color-theme-orange;
+  color: @color-white !important;
+}
+
+::-moz-selection {
+  text-shadow: none;
+  background: @color-theme-orange;
+}
+
+img::selection {
+  background: transparent;
+}
+
+img::-moz-selection {
+  background: transparent;
+}
+
+body {
+  height: 100vh;
+  .mixin-font-light;
+  font-size: @font-size-base;
+  webkit-tap-highlight-color: @color-theme-orange;
+  color: @color-font-base;
+}
+
+strong {
+  .mixin-font-bold;
+}
+
+p {
+  font-size: @font-size-base;
+  line-height: normal;
+  margin: 0;
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+  outline: none;
+  text-decoration: none;
+}
+
+a {
+  color: @color-theme-orange;
+}
+
+a:hover,
+a:focus,
+a:active,
+a.active {
+  color: darken(@color-theme-orange, 10%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  margin: 0;
+}
+
+h1 {
+  .mixin-font-bold;
+}
+
+label {
+  font-weight: 400;
+}
+
+.app-title {
+  .mixin-font-black;
+  font-size: @section-title;
+}
+
+.app-subtitle {
+  .mixin-font-reg;
+  font-size: @section-subtitle;
+}
+
+.app-main {
+  display: block;
+  height: 100%;
+}
+
+// Head
+.app-head {
+  background: url(../img/header-bg.jpg) no-repeat center center;
+  background-size: cover;
+
+  &__info {
+    padding: 80px 0;
+    line-height: 1;
+
+    h1 {
+      font-size: @font-size-xxx;
+      span {
+        display: inline-block;
+        padding: 10px @spacing-base;
+        .u-bg-white;
+      }
+    }
+
+    h2 {
+      font-size: @font-size-xx;
+      margin: 2px 0 30px;
+
+      span {
+        padding: 0 @spacing-base @spacing-base;
+        .u-bg-white;
+      }
+
+    }
+
+    .app-head-list {
+      margin: @spacing-base 0;
+      font-size: @font-size-x;
+
+      > div {
+        span {
+          display: inline-block;
+          padding: @spacing-base-half @spacing-base;
+          .u-bg-white;
+        }
+
+        &:not(:first-child) {
+          margin: 0;
+        }
+
+        &:last-child {
+          span {
+            padding-bottom: 12px;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      & {
+        padding: 40px 0;
+
+        h1 {
+          font-size: @font-size-xx;
+        }
+
+        h2 {
+          font-size: 18px;
+        }
+
+        .app-head-list {
+          font-size: @font-size-base;
+        }
+      }
+    }
+  }
+
+  .u-bg-white {
+    background-color: @color-bg-white;
+  }
+
+  .btn {
+    font-size: 18px;
+  }
+}
+
+// Section
+.app-section {
+  position: relative;
+
+  &__title {
+    margin-bottom: @spacing-double;
+    text-align: center;
+
+    &:not(:first-child) {
+      margin-top: calc(@spacing-double * 2);
+    }
+  }
+
+  &__subtitle {
+    .mixin-font-bold;
+    margin-top: @spacing-double;
+    margin-bottom: @spacing-base;
+  }
+
+  @media (min-width: 768px) {
+    & {
+      &__title {
+        text-align: left;
+      }
+    }
+  }
+}
+
+// Footer
+.app-footer {
+  text-align: center;
+  padding: @spacing-double 0;
+
+  &__row {
+    .mixin-flex-column;
+    .mixin-flex-start-center;
+  }
+
+  &__col {
+    width: 100%;
+  }
+
+  .app-tel {
+    .mixin-font-black;
+    font-size: 24px;
+    letter-spacing: -0.7px;
+    text-decoration: none !important; // For Safari
+  }
+
+  @media (min-width: 768px) {
+    & {
+      text-align: left;
+
+      &__row {
+        .mixin-flex-row;
+      }
+      &__col {
+        flex: 1;
+
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
